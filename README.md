@@ -25,6 +25,17 @@ You can use fox-convert by opening the `.exe` (Windows) or via the command line:
 fox-convert <chrome store url>
 ```
 The extension will be downloaded, converted, and stored in the `output` folder.
+#### **Arch Linux / Manjaro Instructions**
+
+For Arch Linux or a compatible distribution, you can build and install fox-convert using the provided PKGBUILD:
+
+1. Download the `PKGBUILD` file from this repository.
+2. Open a terminal and navigate to the directory containing the `PKGBUILD`.
+3. Run the following command to build and install fox-convert:
+   ```sh
+   makepkg -si
+   ```
+This will build fox-convert from source and install it system-wide.
 
 ***
 
