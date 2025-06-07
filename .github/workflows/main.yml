@@ -6,6 +6,9 @@ on:
       - '*.*.*'
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   build-linux:
     runs-on: ubuntu-latest
@@ -30,11 +33,10 @@ jobs:
     - name: Prepare .deb package structure
       run: |
         if [ "$GITHUB_REF_TYPE" = "tag" ]; then
-          VERSION="$GITHUB_REF_NAME"
+        VERSION=$(echo $GITHUB_REF_NAME | sed 's/^v//')
         else
           VERSION="0.0.0-dev"
         fi
-        echo "Using VERSION: $VERSION"
         mkdir -p fox-convert_${VERSION}/DEBIAN
         mkdir -p fox-convert_${VERSION}/usr/local/bin
         cp -r publish-linux/* fox-convert_${VERSION}/usr/local/bin/
@@ -48,12 +50,7 @@ jobs:
 
     - name: Build .deb package
       run: |
-        if [ "$GITHUB_REF_TYPE" = "tag" ]; then
-          VERSION="$GITHUB_REF_NAME"
-        else
-          VERSION="0.0.0-dev"
-        fi
-        echo "Building .deb for VERSION: $VERSION"
+        VERSION=$(echo $GITHUB_REF | sed 's/refs\/tags\/v//')
         dpkg-deb --build fox-convert_${VERSION}
 
     - name: Upload .deb as artifact
