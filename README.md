@@ -31,9 +31,9 @@ The extension will be downloaded, converted, and stored in the `output` folder.
 ### How to Install the Converted Extension into Firefox
 
 1. Open Firefox Nightly/Developer or a fork that supports unsigned extensions.
-2. Navigate to the Add-ons page by clicking the hamburger menu (☰) in the top right corner, then going to `Settings -> Extensions & themes`, or type `about:addons` in the address bar.
+2. Navigate to the Add-ons page by clicking the hamburger menu (☰) in the top right corner, then going to `Settings -> Extensions & Themes`, or type `about:addons` in the address bar.
 3. Click the cog icon at the top of the page and select `Install Add-on From File`.
-4. Navigate to your fox-convert folder, then `output -> [extension name]`, and open the zip file.
+4. Navigate to your fox-convert folder, then `output -> [extension name]`, and open the .xpi file.
 
 ***
 
