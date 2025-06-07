@@ -1,17 +1,26 @@
-﻿using System.IO.Compression;
+using System.IO.Compression;
+using System.Runtime.InteropServices;
 using fox_convert;
 
 class Program
 {
     const string ChromeWebStorePrefix = "https://chromewebstore.google.com/detail/";
-    const string CrxFileName = "extension.crx";
-    const string TempDir = "temp_extract";
-    const string OutputDir = "output";
+    static string CrxFileName = "extension.crx";
+    static string TempDir = "temp_extract";
+    static string OutputDir = "output";
 
     static void Main(string[] args)
     {
         Console.Title = "fox-convert";
         bool paramMode = args.Length > 0;
+
+        if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+        {
+            string linuxDir = "fox-convert";
+            CrxFileName = Path.Combine(linuxDir, "extension.crx");
+            TempDir = Path.Combine(linuxDir, "temp_extract");
+            OutputDir = Path.Combine(linuxDir, "output");
+        }
 
         if (!paramMode)
             ShowWelcome();
