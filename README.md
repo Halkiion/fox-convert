@@ -33,10 +33,10 @@ The extension will be downloaded, converted, and stored in the `output` folder.
 1. Open Firefox Nightly/Developer or a fork that supports unsigned extensions.
 2. Navigate to the Add-ons page by clicking the hamburger menu (☰) in the top right corner, then going to `Settings -> Extensions & Themes`, or type `about:addons` in the address bar.
 3. Click the cog icon at the top of the page and select `Install Add-on From File`.
-4. Navigate to your fox-convert folder, then `output -> [extension name]`, and open the .xpi file.
+4. Navigate to your fox-convert folder, then `output -> [extension name]`, and open the .xpi file. This can be found in your $HOME directory on Linux.
 
 ***
 
 ### Support
 
-For issues or questions, please [open an issue](../../issues).
+For issues or questions, please [open an issue](../../issues), Alternative, if you would like to contribute to the project, [open a pull request](../../pulls).
