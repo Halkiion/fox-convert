@@ -23,7 +23,11 @@ jobs:
 
     - name: Prepare .deb package structure
       run: |
-        VERSION=$(echo $GITHUB_REF | sed 's/refs\/tags\/v//')
+        if [ "$GITHUB_REF_TYPE" = "tag" ]; then
+        VERSION=$(echo $GITHUB_REF_NAME | sed 's/^v//')
+        else
+          VERSION="0.0.0-dev"
+        fi
         mkdir -p fox-convert_${VERSION}/DEBIAN
         mkdir -p fox-convert_${VERSION}/usr/local/bin
         cp -r publish-linux/* fox-convert_${VERSION}/usr/local/bin/
