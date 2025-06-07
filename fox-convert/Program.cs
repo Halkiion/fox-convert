@@ -16,7 +16,7 @@ class Program
 
         if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
         {
-            string linuxDir = "fox-convert";
+            string linuxDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "fox-convert");
             CrxFileName = Path.Combine(linuxDir, "extension.crx");
             TempDir = Path.Combine(linuxDir, "temp_extract");
             OutputDir = Path.Combine(linuxDir, "output");
